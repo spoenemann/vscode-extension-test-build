@@ -11,6 +11,7 @@ jobs:
     name: package hashicorp/vscode-terraform
     runs-on: ubuntu-latest
     steps:
+    - run: sudo apt-get install g++ libx11-dev libxkbfile-dev libsecret-1-dev
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'

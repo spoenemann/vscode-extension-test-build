@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  package_extension:
+    name: node publish-extensions
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - uses: actions/checkout@v2
+      with:
+        repository: hashicorp/vscode-terraform
+    - run: npm install
+    - run: npx vsce package
